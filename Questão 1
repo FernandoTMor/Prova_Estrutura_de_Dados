@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Construir um método que receba uma matriz quadrada de inteiros e exiba de forma recursiva a diagonal principal*/
+void exibirDiagonalPrincipal(int matriz[][100], int tamanho, int linha, int coluna) {
+  // Verifica se a linha e a coluna estão dentro dos limites da matriz
+    if (linha < tamanho && coluna < tamanho) {
+        // Exibe o elemento da diagonal principal
+        printf("%d ", matriz[linha][coluna]);
+
+        // Chama recursivamente a função para a próxima posição da diagonal
+        exibirDiagonalPrincipal(matriz, tamanho, linha + 1, coluna + 1);
+    }
+}
+
+int main() {
+    int matriz[100][100], tamanho, i, j;
+    printf("Digite o tamanho da matriz quadrada: ");
+    scanf("%d", &tamanho);
+
+    printf("Digite os elementos da matriz:\n");
+    for (i = 0; i < tamanho; i++) {
+        for (j = 0; j < tamanho; j++) {
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    printf("Diagonal principal: ");
+    exibirDiagonalPrincipal(matriz, tamanho, 0, 0);
+    printf("\n");
+
+    return 0;
+}
