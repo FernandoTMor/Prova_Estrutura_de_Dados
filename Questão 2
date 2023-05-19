@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Tendo como base um vetor de inteiros de tamanho 5, faça um método recursivo para preencher o vetor com dados vindos do usuário.*/
+void preecheValores(int *vetor, int tamanho, int i){
+    if (i < tamanho){
+        printf ("Digite o  elemento %d do vetor\n", i);
+        scanf("%d", &vetor[i]);
+    }
+    preecheValores(vetor, tamanho, i+1);
+}
+void exibirVetor(int *vetor, int tamanho, int i){
+    if(i < tamanho){
+        printf("%d", &vetor[i]);
+    }
+    printf("\n");
+    exibirVetor(vetor, tamanho, i+1);
+}
+
+int main() {
+    int vetor[5];
+    printf("Digite os valores do vetor\n");
+    preecheValores(vetor, 5, 0);
+    exibirVetor(vetor, 5, 0);
+    return 0;
+}
