@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Tendo como base um vetor de inteiros, faça um método recursivo que retorne a quantidade de números presentes na faixa.
+Por exemplo, metodo5(vetor, TAM, ini, fim).*/
+void preecheValores(int *vetor, int tamanho, int i){
+    if (i < tamanho){
+        printf ("Digite o  elemento %d do vetor\n", i);
+        scanf("%d", &vetor[i]);
+        preecheValores(vetor, tamanho, i+1);
+    }
+
+}
+void exibirVetor(int *vetor, int tamanho, int i){
+    if(i < tamanho){
+        printf("%d\n", vetor[i]);
+        exibirVetor(vetor, tamanho, i+1);
+    }
+}
+
+int contarValores(int *vetor, int tamanho, int i){
+    int cont=0;
+    if(i < tamanho){
+        contarValores(vetor, tamanho, i+1);
+        cont=tamanho;
+    }
+    return cont;
+}
+
+int main() {
+    int *vetor;
+    int tamanho;
+    printf("Digite o  tamanho do vetor: \n");
+    scanf("%d", &tamanho);
+    preecheValores(vetor, tamanho, 0);
+    printf("Exibindo valores do vetor: \n");
+    exibirVetor(vetor, tamanho, 0);
+    printf("\n");
+    printf("%d eh a quantidade de numeros presente no vetor", contarValores(vetor, tamanho, 0));
+    return 0;
+}
