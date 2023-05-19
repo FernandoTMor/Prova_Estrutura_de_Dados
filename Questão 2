@@ -5,15 +5,15 @@ void preecheValores(int *vetor, int tamanho, int i){
     if (i < tamanho){
         printf ("Digite o  elemento %d do vetor\n", i);
         scanf("%d", &vetor[i]);
+        preecheValores(vetor, tamanho, i+1);
     }
-    preecheValores(vetor, tamanho, i+1);
+
 }
 void exibirVetor(int *vetor, int tamanho, int i){
     if(i < tamanho){
-        printf("%d", &vetor[i]);
+        printf("%d\n", vetor[i]);
+        exibirVetor(vetor, tamanho, i+1);
     }
-    printf("\n");
-    exibirVetor(vetor, tamanho, i+1);
 }
 
 int main() {
