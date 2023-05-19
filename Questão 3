@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Tendo como base um vetor de inteiros de tamanho 5, faça um método recursivo que substitua um valor por outro.
+ Por exemplo, metodo3(vetor, TAM, valorOriginal, valorDestino)*/
+void substituirValor(int *vetor, int tamanho, int i, int indiceOriginal, int valorSubstituido){
+    if (i < tamanho){
+        vetor[indiceOriginal] = valorSubstituido;
+        substituirValor(vetor, tamanho, i+1, indiceOriginal, valorSubstituido);
+    }
+}
+
+void preecheValores(int *vetor, int tamanho, int i){
+    if (i < tamanho){
+        printf ("Digite o  elemento %d do vetor\n", i);
+        scanf("%d", &vetor[i]);
+        preecheValores(vetor, tamanho, i+1);
+    }
+
+}
+
+void exibirVetor(int *vetor, int tamanho, int i){
+    if(i < tamanho){
+        printf("%d\n", vetor[i]);
+        exibirVetor(vetor, tamanho, i+1);
+    }
+}
+
+int main()
+{
+    int vetor[5];
+    int indiceSubstituto, valor;
+    printf("Digite os valores do vetor\n");
+    preecheValores(vetor, 5, 0);
+    printf ("\n");
+    printf ("Exibindo valores\n");
+    exibirVetor(vetor, 5, 0);
+
+    printf("Digite o indice do vetor que deseja substituir");
+    scanf("%d", &indiceSubstituto);
+    printf("Digite por qual valor deseja substituir");
+    scanf("%d", &valor);
+    substituirValor(vetor, 5, 0, indiceSubstituto, valor);
+    exibirVetor(vetor, 5, 0);
+    return 0;
+}
